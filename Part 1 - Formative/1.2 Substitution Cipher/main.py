@@ -4,10 +4,30 @@ alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
 def sub_encode(text, codebet):
-    return ""
+    """
+
+    :param text: The text to be encoded
+    :param codebet: The scrambled alphabet
+    :return encoded_word: The encoded word
+    """
+    encoded_word = ""
+    for letter in text:
+        index = alpha.index(letter)
+        encoded_word += codebet[index]
+    return encoded_word
 
 
 def sub_decode(text, codebet):
+    """
+
+    :param text:
+    :param codebet:
+    :return:
+    """
+    decoded_word = ""
+    for letter in text:
+        index = alpha.index(letter)
+        encoded_word += codebet[index]
     return ""
 
 

@@ -28,6 +28,7 @@ def caesar_decode(text, n):
     decoded_word = ""
     for letter in text:
         index = alpha.index(letter.upper())
+        print(index)
         decoded_word += alpha[index - n]
     return decoded_word
 
