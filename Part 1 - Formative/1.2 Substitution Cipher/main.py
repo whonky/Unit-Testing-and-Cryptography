@@ -5,7 +5,7 @@ alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 def sub_encode(text, codebet):
     """
-
+    Encodes a word with a substitution cipher.
     :param text: The text to be encoded
     :param codebet: The scrambled alphabet
     :return encoded_word: The encoded word
@@ -19,16 +19,16 @@ def sub_encode(text, codebet):
 
 def sub_decode(text, codebet):
     """
-
-    :param text:
-    :param codebet:
-    :return:
+    Decodes a word coded with a substitution cipher.
+    :param text: The text to be decoded
+    :param codebet: The scrambled alphabet used to encode the text
+    :return decoded_word: The decoded word
     """
     decoded_word = ""
     for letter in text:
-        index = alpha.index(letter)
-        encoded_word += codebet[index]
-    return ""
+        index = codebet.index(letter)
+        decoded_word += alpha[index]
+    return decoded_word
 
 
 test = "HELLOWORLD"
