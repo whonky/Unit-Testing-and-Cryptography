@@ -12,9 +12,17 @@ def caesar_encode(text, n):
     """
     encoded_word = ""
     for letter in text:
-        index = alpha.index(letter.upper())
-        index = (index + n) % 26
-        encoded_word += alpha[index]
+        if letter.isalpha():
+            if letter.islower():
+                index = alpha.index(letter.upper())
+                index = (index + n) % 26
+                encoded_word += (alpha[index]).lower()
+            else:
+                index = alpha.index(letter)
+                index = (index + n) % 26
+                encoded_word += alpha[index]
+        else:
+            encoded_word += letter
     return encoded_word
 
 
