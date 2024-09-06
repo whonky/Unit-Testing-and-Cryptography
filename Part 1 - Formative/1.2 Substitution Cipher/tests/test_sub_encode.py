@@ -27,7 +27,7 @@ class TestSubEncode(TestCase):
         self.assertEqual(sub_encode("!@#$%^&*()", "koxvtewjfzblmysrcqhandgpiu"), "!@#$%^&*()")
 
     def test_sub_encode_numbers(self):
-        self.assertEqual(sub_encode(1234567890, "koxvtewjfzblmysrcqhandgpiu"), "1234567890")
+        self.assertEqual(sub_encode("1234567890", "koxvtewjfzblmysrcqhandgpiu"), "1234567890")
 
     def test_sub_encode_blank(self):
         self.assertEqual(sub_encode("", "koxvtewjfzblmysrcqhandgpiu"), "")
@@ -38,3 +38,11 @@ class TestSubEncode(TestCase):
     def test_sub_encode_sentence(self):
         self.assertEqual(sub_encode("Hello, my name is Hana.", "koxvtewjfzblmysrcqhandgpiu"), "Jtlls, mi ykmt fh Jkyk.")
 
+    def test_sub_encode_integers(self):
+        self.assertEqual(sub_encode(1234567890, "koxvtewjfzblmysrcqhandgpiu"), "1234567890")
+
+    def test_sub_encode_floats(self):
+        self.assertEqual(sub_encode(1.2, "koxvtewjfzblmysrcqhandgpiu"), "1.2")
+
+    def test_sub_encode_boolean(self):
+        self.assertEqual(sub_encode(True, "koxvtewjfzblmysrcqhandgpiu"), "Epzf")
