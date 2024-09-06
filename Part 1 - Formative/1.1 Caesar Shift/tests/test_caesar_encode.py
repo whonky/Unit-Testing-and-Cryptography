@@ -32,6 +32,9 @@ class TestCaesarEncode(TestCase):
     def test_caesar_encode_long_shift(self):
         self.assertEqual(caesar_encode("hello", 32), "nkrru")
 
+    def test_caesar_encode_sentence(self):
+        self.assertEqual(caesar_encode("Hello, my name is Hana.", 7), "Olssv, tf uhtl pz Ohuh.")
+
 
 
 
