@@ -35,11 +35,10 @@ def caesar_decode(text, n):
     for letter in text:
         if letter.isalpha():
             index = alpha.index(letter.upper())
-            decoded_word += alpha[index - n].lower()
             if letter.islower():
-                decoded_word += (alpha[index]).lower()
+                decoded_word += (alpha[index - n]).lower()
             else:
-                decoded_word += alpha[index]
+                decoded_word += alpha[index - n]
         else:
             decoded_word += letter
     return decoded_word
