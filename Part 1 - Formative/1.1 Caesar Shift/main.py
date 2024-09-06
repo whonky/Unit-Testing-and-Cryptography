@@ -11,6 +11,7 @@ def caesar_encode(text, n):
     :return encoded_word: The encoded text.
     """
     encoded_word = ""
+    text = str(text)
     for letter in text:
         if letter.isalpha():
             index = alpha.index(letter.upper())
@@ -32,6 +33,7 @@ def caesar_decode(text, n):
     :return decoded_word: The decoded text.
     """
     decoded_word = ""
+    text = str(text)
     for letter in text:
         if letter.isalpha():
             index = alpha.index(letter.upper())

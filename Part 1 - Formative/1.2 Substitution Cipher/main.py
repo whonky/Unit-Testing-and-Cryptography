@@ -11,9 +11,13 @@ def sub_encode(text, codebet):
     :return encoded_word: The encoded word
     """
     encoded_word = ""
+    text = str(text)
     for letter in text:
-        index = alpha.index(letter)
-        encoded_word += codebet[index]
+        if letter.isalpha():
+            index = alpha.index(letter)
+            encoded_word += codebet[index]
+        else:
+            encoded_word += letter
     return encoded_word
 
 

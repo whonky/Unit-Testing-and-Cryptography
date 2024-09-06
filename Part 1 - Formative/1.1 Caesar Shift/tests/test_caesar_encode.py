@@ -20,6 +20,15 @@ class TestCaesarEncode(TestCase):
     def test_caesar_encode_numbers(self):
         self.assertEqual(caesar_encode("12", 5), "12")
 
+    def test_caesar_encode_integers(self):
+        self.assertEqual(caesar_encode(12, 5), "12")
+
+    def test_caesar_encode_floats(self):
+        self.assertEqual(caesar_encode(1.2, 5), "1.2")
+
+    def test_caesar_encode_boolean(self):
+        self.assertEqual(caesar_encode(True, 5), "Ywzj")
+
     def test_caesar_encode_special_characters(self):
         self.assertEqual(caesar_encode("@#$%^&*()", 5), "@#$%^&*()")
 
@@ -34,7 +43,6 @@ class TestCaesarEncode(TestCase):
 
     def test_caesar_encode_sentence(self):
         self.assertEqual(caesar_encode("Hello, my name is Hana.", 7), "Olssv, tf uhtl pz Ohuh.")
-
 
 
 

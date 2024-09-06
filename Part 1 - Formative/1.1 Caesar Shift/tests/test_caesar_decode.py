@@ -20,6 +20,15 @@ class TestCaesarDecode(TestCase):
     def test_caesar_decode_numbers(self):
         self.assertEqual(caesar_decode("12", 5), "12")
 
+    def test_caesar_encode_integers(self):
+        self.assertEqual(caesar_decode(12, 5), "12")
+
+    def test_caesar_encode_floats(self):
+        self.assertEqual(caesar_decode(1.2, 5), "1.2")
+
+    def test_caesar_encode_boolean(self):
+        self.assertEqual(caesar_decode(True, 5), "Ompz")
+
     def test_caesar_decode_special_characters(self):
         self.assertEqual(caesar_decode("@#$%^&*()", 5), "@#$%^&*()")
 
