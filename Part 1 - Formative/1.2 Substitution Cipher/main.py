@@ -33,9 +33,17 @@ def sub_decode(text, codebet):
     :return decoded_word: The decoded word
     """
     decoded_word = ""
+    text = str(text)
     for letter in text:
-        index = codebet.index(letter)
-        decoded_word += alpha[index]
+        if letter.isalpha():
+            if letter.isupper():
+                index = codebet.upper().index(letter)
+                decoded_word += alpha[index].upper()
+            else:
+                index = codebet.lower().index(letter)
+                decoded_word += alpha[index].lower()
+        else:
+            decoded_word += letter
     return decoded_word
 
 
