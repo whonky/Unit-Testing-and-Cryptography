@@ -47,3 +47,8 @@ class TestSubDecode(TestCase):
     def test_sub_decode_boolean(self):
         self.assertEqual(sub_decode(True, "koxvtewjfzblmysrcqhandgpiu"), "Epzf")
 
+    def test_sub_decode_codebet_with_special_chars(self):
+        self.assertEqual(sub_decode("=.zm=", "=JKUXVBMIYD.PLHZGONCRSAEFQ".lower()), "alpha")
+
+    def test_sub_decode_codebet_with_numbers(self):
+        self.assertEqual(sub_decode("12zm1", "1JKUXVBMIYD2PLHZGONCRSAEFQ".lower()), "alpha")

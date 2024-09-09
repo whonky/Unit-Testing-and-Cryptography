@@ -35,7 +35,7 @@ def sub_decode(text, codebet):
     decoded_word = ""
     text = str(text)
     for letter in text:
-        if letter.isalpha():
+        if letter.upper() in codebet.upper():
             if letter.isupper():
                 index = codebet.upper().index(letter)
                 decoded_word += alpha[index].upper()
