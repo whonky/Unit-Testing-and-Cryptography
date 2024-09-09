@@ -14,7 +14,13 @@ def vig_encode(text, keyword):
 
 
 def vig_decode(text, keyword):
-    return ""
+    decoded_word = ""
+    for i in range(len(text)):
+        alpha_index = alpha.index(text[i])
+        keyword_index = alpha.index(keyword[i % len(keyword)])
+        decoded_index = alpha_index - keyword_index
+        decoded_word += alpha[decoded_index % len(alpha)]
+    return decoded_word
 
 
 test = "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG"
