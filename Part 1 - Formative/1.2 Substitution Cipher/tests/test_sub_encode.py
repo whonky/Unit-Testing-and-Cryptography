@@ -45,4 +45,4 @@ class TestSubEncode(TestCase):
         self.assertEqual(sub_encode(1.2, "koxvtewjfzblmysrcqhandgpiu"), "1.2")
 
     def test_sub_encode_boolean(self):
-        self.assertEqual(sub_encode(True, "koxvtewjfzblmysrcqhandgpiu"), "Epzf")
+        self.assertEqual(sub_encode(True, "koxvtewjfzblmysrcqhandgpiu"), "Aqnt")

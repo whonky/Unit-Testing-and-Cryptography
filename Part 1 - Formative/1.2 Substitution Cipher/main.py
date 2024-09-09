@@ -14,8 +14,12 @@ def sub_encode(text, codebet):
     text = str(text)
     for letter in text:
         if letter.isalpha():
-            index = alpha.index(letter)
-            encoded_word += codebet[index]
+            if letter.isupper():
+                index = alpha.upper().index(letter)
+                encoded_word += codebet[index].upper()
+            else:
+                index = alpha.lower().index(letter)
+                encoded_word += codebet[index].lower()
         else:
             encoded_word += letter
     return encoded_word
