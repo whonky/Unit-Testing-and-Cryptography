@@ -46,3 +46,4 @@ class TestSubDecode(TestCase):
 
     def test_sub_decode_boolean(self):
         self.assertEqual(sub_decode(True, "koxvtewjfzblmysrcqhandgpiu"), "Epzf")
+

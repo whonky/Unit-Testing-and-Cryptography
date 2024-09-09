@@ -46,3 +46,9 @@ class TestSubEncode(TestCase):
 
     def test_sub_encode_boolean(self):
         self.assertEqual(sub_encode(True, "koxvtewjfzblmysrcqhandgpiu"), "Aqnt")
+
+    def test_sub_encode_codebet_with_special_chars(self):
+        self.assertEqual(sub_encode("alpha", "=JKUXVBMIYD.PLHZGONCRSAEFQ".lower()), "=.zm=")
+
+    def test_sub_encode_codebet_with_numbers(self):
+        self.assertEqual(sub_encode("alpha", "1JKUXVBMIYD2PLHZGONCRSAEFQ".lower()), "12zm1")
