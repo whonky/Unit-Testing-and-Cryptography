@@ -28,13 +28,13 @@ def vig_encode(text, keyword):
 
     for letter in keyword:
         if letter.isalpha():
-            simplified_text += letter.upper()
+            simplified_keyword += letter.upper()
         elif letter == "_" or letter == " ":
-            simplified_text += "_"
+            simplified_keyword += "_"
 
     for i in range(len(simplified_text)):
-        text_index = alpha.index(text[i])
-        keyword_index = alpha.index(keyword[i % len(keyword)])
+        text_index = alpha.index(simplified_text[i])
+        keyword_index = alpha.index(simplified_keyword[i % len(simplified_keyword)])
         encoded_index = keyword_index + text_index
         encoded_word += alpha[encoded_index % len(alpha)]
 
