@@ -8,7 +8,7 @@ def vig_encode(text, keyword):
     Encodes given text with a vigenere cipher using the given keyword.
 
     Spaces are read and returned as underscores.
-    Special characters and numbers in the text are omitted.
+    Special characters and numbers in the text and keyword are omitted.
     The encoded text will be all capital letters regardless of original capitalization.
     :param text:
     :param keyword:
@@ -20,13 +20,13 @@ def vig_encode(text, keyword):
     simplified_keyword = ""
     text = str(text)
 
-    for letter in text:
+    for letter in text: # Simplifying given text
         if letter.isalpha():
             simplified_text += letter.upper()
         elif letter == "_" or letter == " ":
             simplified_text += "_"
 
-    for letter in keyword:
+    for letter in keyword: # Simplifying given keyword
         if letter.isalpha():
             simplified_keyword += letter.upper()
         elif letter == "_" or letter == " ":
