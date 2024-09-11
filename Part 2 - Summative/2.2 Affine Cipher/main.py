@@ -20,9 +20,32 @@ def mod_inverse(a, m):
 
 # These are the functions you'll need to write:
 def affine_encode(text, a, b):
-    return ''
+    """
+
+    :param text:
+    :param a:
+    :param b:
+    :return:
+    """
+
+    encoded_text = ""
+    text = str(text)
+
+    for letter in text:
+        index = alpha.find(letter)
+        encoded_index = (a * index + b) % len(alpha)
+        encoded_text += alpha[encoded_index]
+
+    return encoded_text
 
 def affine_decode(text, a, b):
+    """
+
+    :param text:
+    :param a:
+    :param b:
+    :return:
+    """
     return ''
 
 test = "HELLOWORLD"
