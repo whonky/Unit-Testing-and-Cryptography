@@ -23,7 +23,7 @@ def affine_encode(text, a, b):
     """
     Encodes text with an affine cipher.
     :param text: The text to be encoded.
-    :param a:
+    :param a: the
     :param b:
     :return:
     """
