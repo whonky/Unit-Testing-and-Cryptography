@@ -33,6 +33,6 @@ class TestAffineEncode(TestCase):
         self.assertEqual(affine_encode("hello", 3, 30), "zqllu")
 
     def test_affine_encode_small_shift(self):
-        self.assertEqual(affine_encode("hello", 3, 1), "kveet")
+        self.assertEqual(affine_encode("hello", 3, 1), "wniir")
 
 

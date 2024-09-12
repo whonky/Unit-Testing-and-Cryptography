@@ -33,9 +33,15 @@ def affine_encode(text, a, b):
     text = str(text)
 
     for letter in text:
-        index = alpha.find(letter)
-        encoded_index = (a * index + b) % len(alpha)
-        encoded_text += alpha[encoded_index]
+        if letter.isalpha():
+            index = alpha.find(letter.upper())
+            encoded_index = (a * index + b) % len(alpha)
+            if letter.islower():
+                encoded_text += alpha[encoded_index].lower()
+            else:
+                encoded_text += alpha[encoded_index]
+        else:
+            encoded_text += letter
 
     return encoded_text
 
