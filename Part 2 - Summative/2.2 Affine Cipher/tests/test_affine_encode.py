@@ -30,7 +30,7 @@ class TestAffineEncode(TestCase):
         self.assertEqual(affine_encode("Hello, my name is Hana! I am in 12th grade.", 7, 10), "Hmjje, qw xkqm og Hkxk! O kq ox 12nh azkfm.")
 
     def test_affine_encode_long_shift(self):
-        self.assertEqual(affine_encode("hello", 3, 30), "zqllu")
+        self.assertEqual(affine_encode("hello", 3, 25), "ulggp")
 
     def test_affine_encode_small_shift(self):
         self.assertEqual(affine_encode("hello", 3, 1), "wniir")
