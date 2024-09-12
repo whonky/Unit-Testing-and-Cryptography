@@ -22,10 +22,11 @@ def mod_inverse(a, m):
 def affine_encode(text, a, b):
     """
     Encodes text with an affine cipher.
+
     :param text: The text to be encoded.
-    :param a: the
-    :param b:
-    :return:
+    :param a: The number multiplied by the letter's index. Should be less than 26 and share no common factors with the number 26.
+    :param b: The number added as a shift. Should be less than 26.
+    :return: The encoded text.
     """
 
     encoded_text = ""
@@ -41,10 +42,11 @@ def affine_encode(text, a, b):
 def affine_decode(text, a, b):
     """
     Decodes text with an affine cipher.
+
     :param text: The text to be decoded.
-    :param a:
-    :param b:
-    :return:
+    :param a: The number multiplied by the letter's index. Should be less than 26 and share no common factors with the number 26.
+    :param b: The number added as a shift. Should be less than 26.
+    :return: The decoded text.
     """
 
     decoded_text = ""
