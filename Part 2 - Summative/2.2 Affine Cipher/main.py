@@ -59,10 +59,16 @@ def affine_decode(text, a, b):
     text = str(text)
 
     for letter in text:
-        index = alpha.find(letter)
-        decoded_index = index - b
-        decoded_index = (mod_inverse(a, len(alpha)) * decoded_index) % len(alpha)
-        decoded_text += alpha[decoded_index]
+        if letter.isalpha():
+            index = alpha.find(letter.upper())
+            decoded_index = index - b
+            decoded_index = (mod_inverse(a, len(alpha)) * decoded_index) % len(alpha)
+            if letter.islower():
+                decoded_text += alpha[decoded_index].lower()
+            else:
+                decoded_text += alpha[decoded_index]
+        else:
+            decoded_text += letter
 
     return decoded_text
 
