@@ -86,10 +86,35 @@ print(dec)
 # PART 2
 # These  are the functions you'll need to write:
 def convert_to_num(ngram):
-    return 0
+    """
+
+    :param ngram: String of letters
+    :return:
+    """
+
+    converted_ngram = 0
+
+    for i in range(len(ngram)):
+        ngram_index = i
+        alpha_index = alpha.find(ngram[i])
+        converted_ngram += alpha_index * 26 ** ngram_index
+
+    return converted_ngram
 
 def convert_to_text(num, n):
-    return ''
+    """
+
+    :param num:
+    :param n: number of letters in original ngram
+    :return:
+    """
+
+    converted_text = ""
+
+    while True:
+        index = num % 26
+
+    return converted_text
 
 test = "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG"
 l = len(test)
