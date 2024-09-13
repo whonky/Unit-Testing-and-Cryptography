@@ -110,9 +110,12 @@ def convert_to_text(num, n):
     """
 
     converted_text = ""
+    number = num
 
-    while True:
-        index = num % 26
+    while number > 0:
+        index = number % 26
+        number = number // 26
+        converted_text += alpha[index]
 
     return converted_text
 
