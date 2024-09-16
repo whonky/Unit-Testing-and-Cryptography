@@ -107,7 +107,7 @@ def convert_to_num(ngram):
 
 def convert_to_text(num):
     """
-    Converts a number that was originally text back to text.
+    Converts a ngram (a group of letters) that has been converted to a number back to text.
     The returned text will be in all uppercase.
 
     :param num: The number to be converted
