@@ -87,17 +87,22 @@ print(dec)
 # These  are the functions you'll need to write:
 def convert_to_num(ngram):
     """
+    Converts a group of letters (a ngram) to numbers according to the following logic:
 
-    :param ngram: String of letters
-    :return:
+    Characters not in the alphabet in ngram are skipped and ignored.
+
+    :param ngram: A string of letters
+    :return: The converted numbers
     """
 
     converted_ngram = 0
+    ngram_index = 0
 
     for i in range(len(ngram)):
-        ngram_index = i
-        alpha_index = alpha.find(ngram[i])
-        converted_ngram += alpha_index * 26 ** ngram_index
+        if ngram[i].upper() in alpha:
+            alpha_index = alpha.find(ngram[i].upper())
+            converted_ngram += alpha_index * 26 ** ngram_index
+            ngram_index += 1
 
     return converted_ngram
 
