@@ -105,13 +105,12 @@ def convert_to_num(ngram):
 
     return converted_ngram
 
-def convert_to_text(num, n):
+def convert_to_text(num):
     """
     Converts a number that was originally text back to text.
     The returned text will be in all uppercase.
 
-    :param num: The number to be converted.
-    :param n: The number of letters in original ngram
+    :param num: The number to be converted
     :return: The converted text
     """
 
@@ -128,7 +127,7 @@ def convert_to_text(num, n):
 test = "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG"
 l = len(test)
 num = convert_to_num(test)
-answer = convert_to_text(num, l)
+answer = convert_to_text(num)
 print(num)
 print(answer)
 # If this worked, answer should be the same as test!
