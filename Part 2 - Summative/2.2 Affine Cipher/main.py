@@ -87,8 +87,7 @@ print(dec)
 # These  are the functions you'll need to write:
 def convert_to_num(ngram):
     """
-    Converts a group of letters (a ngram) to numbers according to the following logic:
-
+    Converts a group of letters (a ngram) to numbers.
     Characters not in the alphabet in ngram are skipped and ignored.
 
     :param ngram: A string of letters
@@ -108,10 +107,12 @@ def convert_to_num(ngram):
 
 def convert_to_text(num, n):
     """
+    Converts a number that was originally text back to text.
+    The returned text will be in all uppercase.
 
-    :param num:
-    :param n: number of letters in original ngram
-    :return:
+    :param num: The number to be converted.
+    :param n: The number of letters in original ngram
+    :return: The converted text
     """
 
     converted_text = ""
