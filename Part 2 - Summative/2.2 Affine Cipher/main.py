@@ -178,6 +178,10 @@ def affine_n_decode(text, n, a, b):
     :return:
     """
     decoded_text = ""
+
+    for i in range(0, len(text), n):  # split to ngrams again
+        ngram = text[i:i + n]
+
     return decoded_text
 
 test = "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG"
