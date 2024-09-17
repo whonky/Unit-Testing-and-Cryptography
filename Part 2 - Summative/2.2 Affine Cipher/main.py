@@ -138,10 +138,47 @@ print(answer)
 
 # These are the functions you'll need to write:
 def affine_n_encode(text, n, a, b):
-    return ''
+    """
+
+    :param text: The text to be encoded.
+    :param n: Length of ngrams to split text into
+    :param a: The number multiplied by the letter's index. Should be less than 26 and share no common factors with the number 26.
+    :param b: The number added as a shift. Should be less than 26.
+    :return:
+    """
+    encoded_text = ""
+    simplified_text = ""
+
+    # Adding X to string when not evenly divisible by n
+    if len(text) % n != 0:
+        for i in range((len(text) // n + 1) * n):
+            if i < len(text):
+                simplified_text += text[i]
+            else:
+                simplified_text += "X"
+    else:
+        simplified_text = text
+
+    print(simplified_text)
+
+    # Splitting into ngrams and converted those ngrams to numbers
+    for i in range(0, len(simplified_text), n):
+        ngram = simplified_text[i:i + n]
+        x = convert_to_num(ngram)
+        encoded_text += convert_to_text((a * x + b) % (len(alpha) ** n))
+    return encoded_text
 
 def affine_n_decode(text, n, a, b):
-    return ''
+    """
+
+    :param text:
+    :param n:
+    :param a:
+    :param b:
+    :return:
+    """
+    decoded_text = ""
+    return decoded_text
 
 test = "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG"
 n = 5
