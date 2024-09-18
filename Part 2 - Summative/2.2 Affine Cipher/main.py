@@ -161,10 +161,12 @@ def affine_n_encode(text, n, a, b):
 
     print(simplified_text)
 
-    # Splitting into ngrams and converted those ngrams to numbers
+    # Splitting into ngrams and converted those ngrams to numbers // MISSING ONE LETTER
     for i in range(0, len(simplified_text), n):
         ngram = simplified_text[i:i + n]
+        print(ngram)
         x = convert_to_num(ngram)
+        print(convert_to_text((a * x + b) % (len(alpha) ** n)))
         encoded_text += convert_to_text((a * x + b) % (len(alpha) ** n))
     return encoded_text
 
@@ -177,10 +179,14 @@ def affine_n_decode(text, n, a, b):
     :param b:
     :return:
     """
+
     decoded_text = ""
 
     for i in range(0, len(text), n):  # split to ngrams again
         ngram = text[i:i + n]
+        x = convert_to_num(ngram) - b
+        num = (mod_inverse(a, len(alpha) ** n) * x) % (len(alpha) ** n)
+        decoded_text += convert_to_text(num)
 
     return decoded_text
 
@@ -191,4 +197,9 @@ b = 1721
 enc = affine_n_encode(test, n, a, b)
 dec = affine_n_decode(enc, n, a, b)
 print(enc, dec)
+
+print(affine_n_encode("COOL", 3, 3, 121))
+print(affine_n_encode("COOL", 2, 3, 121))
+print(affine_n_decode("XURYWT", 3, 3, 121))
+print(affine_n_decode("XUHN", 2, 3, 121))
 # If this worked, dec should be the same as test!
