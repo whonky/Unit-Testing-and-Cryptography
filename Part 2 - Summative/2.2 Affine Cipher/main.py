@@ -105,7 +105,7 @@ def convert_to_num(ngram):
 
     return converted_ngram
 
-def convert_to_text(num):
+def convert_to_text(num, n):
     """
     Converts a ngram (a group of letters) that has been converted to a number back to text.
     The returned text will be in all uppercase.
@@ -117,7 +117,7 @@ def convert_to_text(num):
     converted_text = ""
     number = num
 
-    while number > 0:
+    for i in range(n):
         index = number % 26
         number = number // 26
         converted_text += alpha[index]
@@ -127,7 +127,7 @@ def convert_to_text(num):
 test = "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG"
 l = len(test)
 num = convert_to_num(test)
-answer = convert_to_text(num)
+answer = convert_to_text(num, l)
 print(num)
 print(answer)
 # If this worked, answer should be the same as test!
@@ -164,10 +164,10 @@ def affine_n_encode(text, n, a, b):
     # Splitting into ngrams and converted those ngrams to numbers // MISSING ONE LETTER
     for i in range(0, len(simplified_text), n):
         ngram = simplified_text[i:i + n]
-        print(ngram)
+        #print(ngram)
         x = convert_to_num(ngram)
-        print(convert_to_text((a * x + b) % (len(alpha) ** n)))
-        encoded_text += convert_to_text((a * x + b) % (len(alpha) ** n))
+        #print(convert_to_text((a * x + b) % (len(alpha) ** n), n))
+        encoded_text += convert_to_text((a * x + b) % (len(alpha) ** n), n)
     return encoded_text
 
 def affine_n_decode(text, n, a, b):
@@ -186,7 +186,7 @@ def affine_n_decode(text, n, a, b):
         ngram = text[i:i + n]
         x = convert_to_num(ngram) - b
         num = (mod_inverse(a, len(alpha) ** n) * x) % (len(alpha) ** n)
-        decoded_text += convert_to_text(num)
+        decoded_text += convert_to_text(num, n)
 
     return decoded_text
 
