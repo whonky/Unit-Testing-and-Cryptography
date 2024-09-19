@@ -35,3 +35,15 @@ class TestAffineNDecode(TestCase):
     def test_affine_n_decode_long_text(self):
         self.assertEqual(affine_n_decode("USLTFZITNPBJEWREMCQTPQONLCWPJAFFGWWHPZFG", 5, 347, 1721),
                          "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOGXXXX")
+
+    def test_affine_n_decode_n_equals_one(self):
+        self.assertEqual(affine_n_decode("UQPTDZXROCBVSYBEIDJKPGBMPCUQPAFWNGBH", 1, 347, 1721),
+                         "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG")
+
+    def test_affine_n_decode_n_equals_text_length(self):
+        self.assertEqual(affine_n_decode("USLTFJFRNPPDCWRGFAQTIKMNLJKNJATWDWWI", 36, 347, 1721),
+                         "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG")
+
+    def test_affine_n_decode_n_greater_than_text_length(self):
+        self.assertEqual(affine_n_decode("USLTFJFRNPPDCWRGFAQTIKMNLJKNJATWDWWIIXFGGGGGGGGGGG", 50, 347, 1721),
+                         "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOGXXXXXXXXXXXXXX")

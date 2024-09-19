@@ -33,3 +33,12 @@ class TestAffineNEncode(TestCase):
 
     def test_affine_n_encode_long_text(self):
         self.assertEqual(affine_n_encode("THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG", 5, 347, 1721), "USLTFZITNPBJEWREMCQTPQONLCWPJAFFGWWHPZFG")
+
+    def test_affine_n_encode_n_equals_one(self):
+        self.assertEqual(affine_n_encode("THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG", 1, 347, 1721),"UQPTDZXROCBVSYBEIDJKPGBMPCUQPAFWNGBH")
+
+    def test_affine_n_encode_n_equals_text_length(self):
+        self.assertEqual(affine_n_encode("THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG", 36, 347, 1721),"USLTFJFRNPPDCWRGFAQTIKMNLJKNJATWDWWI")
+
+    def test_affine_n_encode_n_greater_than_text_length(self):
+        self.assertEqual(affine_n_encode("THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG", 50, 347, 1721),"USLTFJFRNPPDCWRGFAQTIKMNLJKNJATWDWWIIXFGGGGGGGGGGG")

@@ -159,7 +159,7 @@ def affine_n_encode(text, n, a, b):
     The returned text will be in all uppercase.
 
     :param text: The text to be encoded.
-    :param n: Length of ngrams to split text into. n should always be greater than 1
+    :param n: Length of ngrams to split text into. n should always be greater than 0
     :param a: The number multiplied by the letter's index. Should be less than 26 and share no common factors with the number 26.
     :param b: The number added as a shift. Should be less than 26.
     :return: The encoded text.
@@ -178,8 +178,6 @@ def affine_n_encode(text, n, a, b):
     else:
         simplified_text = new_text
 
-    print(simplified_text)
-
     for i in range(0, len(simplified_text), n):
         ngram = simplified_text[i:i + n]
         x = convert_to_num(ngram)
@@ -193,7 +191,7 @@ def affine_n_decode(text, n, a, b):
     The returned text will be in all uppercase.
 
     :param text: The text to be decoded.
-    :param n: Length of ngrams the text was split into. n should always be greater than 1
+    :param n: Length of ngrams the text was split into. n should always be greater than 0
     :param a: The number multiplied by the letter's index. Should be less than 26 and share no common factors with the number 26.
     :param b: The number added as a shift. Should be less than 26.
     :return: The decoded text.
@@ -217,9 +215,18 @@ b = 1721
 enc = affine_n_encode(test, n, a, b)
 dec = affine_n_decode(enc, n, a, b)
 print(enc, dec)
+print("hi")
 
-print(affine_n_encode("COOL", 3, 3, 121))
-print(affine_n_encode("COOL", 2, 3, 121))
-print(affine_n_decode("XURYWT", 3, 3, 121))
-print(affine_n_decode("XUHN", 2, 3, 121))
+enc = affine_n_encode(test, 1, a, b)
+dec = affine_n_decode(enc, 1, a, b)
+print(enc, dec)
+
+enc = affine_n_encode(test, 36, a, b)
+dec = affine_n_decode(enc, 36, a, b)
+print(enc, dec)
+
+enc = affine_n_encode(test, 50, a, b)
+dec = affine_n_decode(enc, 50, a, b)
+print(enc, dec)
+
 # If this worked, dec should be the same as test!
