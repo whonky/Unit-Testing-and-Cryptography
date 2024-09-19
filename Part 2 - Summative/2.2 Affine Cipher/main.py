@@ -139,6 +139,18 @@ print(answer)
 
 # PART 3
 
+def simplify_text(text):
+    """
+    Simplified text to be in all uppercase and exclude special characters, numbers, and spaces.
+    :param text:
+    :return:
+    """
+    simplified_text = ""
+    for letter in text:
+        if letter.isalpha():
+            simplified_text += letter.upper()
+    return simplified_text
+
 # These are the functions you'll need to write:
 def affine_n_encode(text, n, a, b):
     """
@@ -151,18 +163,19 @@ def affine_n_encode(text, n, a, b):
     :param b: The number added as a shift. Should be less than 26.
     :return:
     """
+    new_text = simplify_text(text)
     encoded_text = ""
     simplified_text = ""
 
     # Adding X to string when not evenly divisible by n
-    if len(text) % n != 0:
-        for i in range((len(text) // n + 1) * n):
-            if i < len(text):
-                simplified_text += text[i]
+    if len(new_text) % n != 0:
+        for i in range((len(new_text) // n + 1) * n):
+            if i < len(new_text):
+                simplified_text += new_text[i]
             else:
                 simplified_text += "X"
     else:
-        simplified_text = text
+        simplified_text = new_text
 
     print(simplified_text)
 
@@ -183,9 +196,10 @@ def affine_n_decode(text, n, a, b):
     :return:
     """
 
+    new_text = simplify_text(text)
     decoded_text = ""
 
-    for i in range(0, len(text), n):  # split to ngrams again
+    for i in range(0, len(new_text), n):  # split to ngrams again
         ngram = text[i:i + n]
         x = convert_to_num(ngram) - b
         num = (mod_inverse(a, len(alpha) ** n) * x) % (len(alpha) ** n)
