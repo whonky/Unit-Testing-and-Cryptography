@@ -127,8 +127,10 @@ def convert_to_text(num, n):
 
 test = "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG"
 l = len(test)
+print(l)
 num = convert_to_num(test)
 answer = convert_to_text(num, l)
+print("hi")
 print(num)
 print(answer)
 # If this worked, answer should be the same as test!
@@ -173,6 +175,7 @@ def affine_n_encode(text, n, a, b):
 def affine_n_decode(text, n, a, b):
     """
 
+    The returned text will be in all uppercase.
     :param text:
     :param n:
     :param a:
