@@ -8,16 +8,16 @@ from main import affine_n_decode
 
 
 class TestAffineNDecode(TestCase):
-    def test_affine_n_decode_uppercase_text_and_evdely_divisible_n(self):
+    def test_affine_n_decode_uppercase_text_and_evenly_divisible_n(self):
         self.assertEqual(affine_n_decode("XUHN", 2, 3, 121), "COOL")
 
-    def test_affine_n_decode_uppercase_text_and_non_evdely_divisible_n(self):
+    def test_affine_n_decode_uppercase_text_and_non_evenly_divisible_n(self):
         self.assertEqual(affine_n_decode("XURYWT", 3, 3, 121), "COOLXX")
 
-    def test_affine_n_decode_lowercase_text_and_evdely_divisible_n(self):
+    def test_affine_n_decode_lowercase_text_and_evenly_divisible_n(self):
         self.assertEqual(affine_n_decode("xuhn", 2, 3, 121), "COOL")
 
-    def test_affine_n_decode_lowercase_text_and_non_evdely_divisible_n(self):
+    def test_affine_n_decode_lowercase_text_and_non_evenly_divisible_n(self):
         self.assertEqual(affine_n_decode("xurywt", 3, 3, 121), "COOLXX")
 
     def test_affine_n_decode_lowercase_and_uppercase_text(self):
