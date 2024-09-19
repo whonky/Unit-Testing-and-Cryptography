@@ -22,4 +22,4 @@ class TestSimplifyText(TestCase):
     def test_simplify_text_space(self):
         self.assertEqual(simplify_text(" Hello"), "HELLO")
     def test_simplify_text_special_characters(self):
-        self.assertEqual(simplify_text("!@#$%Hello"), "HELLO")
+        self.assertEqual(simplify_text("!@#$%^&*()_+Hello"), "HELLO")

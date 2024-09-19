@@ -81,10 +81,10 @@ print(enc)
 print(dec)
 # If this worked, dec should be the same as test!
 
-
-
 # PART 2
 # These  are the functions you'll need to write:
+
+
 def convert_to_num(ngram):
     """
     Converts a group of letters (a ngram) to numbers.
@@ -104,6 +104,7 @@ def convert_to_num(ngram):
             ngram_index += 1
 
     return converted_ngram
+
 
 def convert_to_text(num, n):
     """
@@ -125,6 +126,7 @@ def convert_to_text(num, n):
 
     return converted_text
 
+
 test = "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG"
 l = len(test)
 print(l)
@@ -135,9 +137,8 @@ print(num)
 print(answer)
 # If this worked, answer should be the same as test!
 
-
-
 # PART 3
+
 
 def simplify_text(text):
     """
@@ -152,6 +153,8 @@ def simplify_text(text):
     return simplified_text
 
 # These are the functions you'll need to write:
+
+
 def affine_n_encode(text, n, a, b):
     """
     Encodes text with an affine cipher.
@@ -183,6 +186,7 @@ def affine_n_encode(text, n, a, b):
         x = convert_to_num(ngram)
         encoded_text += convert_to_text((a * x + b) % (len(alpha) ** n), n)
     return encoded_text
+
 
 def affine_n_decode(text, n, a, b):
     """
