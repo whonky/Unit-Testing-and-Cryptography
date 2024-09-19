@@ -111,6 +111,7 @@ def convert_to_text(num, n):
     The returned text will be in all uppercase.
 
     :param num: The number to be converted
+    :param n: The number of letters in the ngram
     :return: The converted text
     """
 
@@ -139,6 +140,8 @@ print(answer)
 # These are the functions you'll need to write:
 def affine_n_encode(text, n, a, b):
     """
+    Characters not in the alphabet are skipped and ignored.
+    The returned text will be in all uppercase.
 
     :param text: The text to be encoded.
     :param n: Length of ngrams to split text into
@@ -161,12 +164,9 @@ def affine_n_encode(text, n, a, b):
 
     print(simplified_text)
 
-    # Splitting into ngrams and converted those ngrams to numbers // MISSING ONE LETTER
     for i in range(0, len(simplified_text), n):
         ngram = simplified_text[i:i + n]
-        #print(ngram)
         x = convert_to_num(ngram)
-        #print(convert_to_text((a * x + b) % (len(alpha) ** n), n))
         encoded_text += convert_to_text((a * x + b) % (len(alpha) ** n), n)
     return encoded_text
 
