@@ -141,9 +141,9 @@ print(answer)
 
 def simplify_text(text):
     """
-    Simplified text to be in all uppercase and exclude special characters, numbers, and spaces.
-    :param text:
-    :return:
+    Simplifies text to be in all uppercase and exclude special characters, numbers, and spaces.
+    :param text: The original text
+    :return: The simplified text
     """
     simplified_text = ""
     for letter in text:
@@ -156,6 +156,7 @@ def affine_n_encode(text, n, a, b):
     """
     Characters not in the alphabet are skipped and ignored.
     The returned text will be in all uppercase.
+    n will always be greater than 1.
 
     :param text: The text to be encoded.
     :param n: Length of ngrams to split text into
