@@ -154,15 +154,15 @@ def simplify_text(text):
 # These are the functions you'll need to write:
 def affine_n_encode(text, n, a, b):
     """
+    Encodes text with an affine cipher.
     Characters not in the alphabet are skipped and ignored.
     The returned text will be in all uppercase.
-    n will always be greater than 1.
 
     :param text: The text to be encoded.
-    :param n: Length of ngrams to split text into
+    :param n: Length of ngrams to split text into. n should always be greater than 1
     :param a: The number multiplied by the letter's index. Should be less than 26 and share no common factors with the number 26.
     :param b: The number added as a shift. Should be less than 26.
-    :return:
+    :return: The encoded text.
     """
     new_text = simplify_text(text)
     encoded_text = ""
@@ -188,20 +188,22 @@ def affine_n_encode(text, n, a, b):
 
 def affine_n_decode(text, n, a, b):
     """
-
+    Decodes text encoded with an affine cipher.
+    Characters not in the alphabet are skipped and ignored.
     The returned text will be in all uppercase.
-    :param text:
-    :param n:
-    :param a:
-    :param b:
-    :return:
+
+    :param text: The text to be decoded.
+    :param n: Length of ngrams the text was split into. n should always be greater than 1
+    :param a: The number multiplied by the letter's index. Should be less than 26 and share no common factors with the number 26.
+    :param b: The number added as a shift. Should be less than 26.
+    :return: The decoded text.
     """
 
     new_text = simplify_text(text)
     decoded_text = ""
 
-    for i in range(0, len(new_text), n):  # split to ngrams again
-        ngram = text[i:i + n]
+    for i in range(0, len(new_text), n):  # Split to ngrams again
+        ngram = new_text[i:i + n]
         x = convert_to_num(ngram) - b
         num = (mod_inverse(a, len(alpha) ** n) * x) % (len(alpha) ** n)
         decoded_text += convert_to_text(num, n)
