@@ -212,6 +212,7 @@ def affine_n_decode(text, n, a, b):
 
     return decoded_text
 
+
 test = "THEQUICKBROWNFOXJUMPEDOVERTHELAZYDOG"
 n = 5
 a = 347
