@@ -64,17 +64,15 @@ def convert_to_text(num, n):
 def rsa_encode(text, m, e):
     x = convert_to_num(text)
     if x < m:
-        y = pow(x, e, m)
+        return pow(x, e, m)
     else:
-        return "There was an error. Text too long."
-
-    return y
+        return "There was an error. The inputted text is too long."
 
 
 
 def rsa_decode(num, m, d, l):
-    return ""
-
+    decoded_num = pow(num, d, m)
+    return convert_to_text(decoded_num, l)
 
 
 def get_d(p, q, e):
@@ -90,9 +88,9 @@ e = 65537
 m = p * q
 d = get_d(p, q, e)
 enc = rsa_encode(text, m, e)
-# dec = rsa_decode(enc, m, d, l)
+dec = rsa_decode(enc, m, d, l)
 print(enc)
-# print(dec)
+print(dec)
 # If this works, dec should be the same as text!
 
 # Part 2: Generate your own key!
