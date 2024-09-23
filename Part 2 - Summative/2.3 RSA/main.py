@@ -65,6 +65,7 @@ def convert_to_text(num, n):
 def rsa_encode(text, m, e):
     """
     Encodes text using RSA encryption.
+    The text should be in all uppercase and only include letters from the alphabet.
     :param text: The text to be encoded.
     :param m: Two extremely large prime numbers multiplied together. This is the modulus used when encoding/decoding.
     :param e: An encoding/decoding exponent
@@ -81,6 +82,7 @@ def rsa_encode(text, m, e):
 def rsa_decode(num, m, d, l):
     """
     Decodes text that has been converted into a number with RSA encryption back to text.
+    The text will be returned in all uppercase.
     :param num: The number to convert back to text
     :param m: Two extremely large prime numbers multiplied together. This is the modulus used when encoding/decoding.
     :param d: The totient of mod m, used to decode. Found using get_d function.
@@ -105,19 +107,28 @@ def get_d(p, q, e):
 
 text = "THEFIVEBOXINGWIZARDSJUMPQUICKLY"
 l = len(text)
-print(l)
 p = 292361466231755597564095925310764764819
 q = 307125506157764866722739041634199200019
 e = 65537
 m = p * q
-print(m)
 d = get_d(p, q, e)
-print(d)
 enc = rsa_encode(text, m, e)
 dec = rsa_decode(enc, m, d, l)
 print(enc)
 print(dec)
 # If this works, dec should be the same as text!
+
+text = "HELLO"
+l = len(text)
+p = 531287
+q = 939119
+e = 65537
+m = p * q
+d = get_d(p, q, e)
+enc = rsa_encode(text, m, e)
+dec = rsa_decode(enc, m, d, l)
+print(enc)
+print(dec)
 
 # Part 2: Generate your own key!
 
