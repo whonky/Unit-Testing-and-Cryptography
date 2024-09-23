@@ -1,7 +1,7 @@
 import math
 
 # Copy and paste any functions you need from the Affine assignment!
-
+alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 def mod_inverse_helper(a, b):
     q, r = a // b, a % b
@@ -63,9 +63,12 @@ def convert_to_text(num, n):
 
 def rsa_encode(text, m, e):
     x = convert_to_num(text)
-    y = pow(x, e, m)
+    if x < m:
+        y = pow(x, e, m)
+    else:
+        return "There was an error. Text too long."
 
-    return 0
+    return y
 
 
 
@@ -78,21 +81,19 @@ def get_d(p, q, e):
     t = (p - 1) * (q - 1)
     return mod_inverse(e, t)
 
-print(get_d(2003,2503,17))
 
-# text = "THEFIVEBOXINGWIZARDSJUMPQUICKLY"
-# l = len(text)
-# p = 292361466231755597564095925310764764819
-# q = 307125506157764866722739041634199200019
-# e = 65537
-# m = p * q
-# d = get_d(p, q, e)
-# enc = rsa_encode(text, m, e)
+text = "THEFIVEBOXINGWIZARDSJUMPQUICKLY"
+l = len(text)
+p = 292361466231755597564095925310764764819
+q = 307125506157764866722739041634199200019
+e = 65537
+m = p * q
+d = get_d(p, q, e)
+enc = rsa_encode(text, m, e)
 # dec = rsa_decode(enc, m, d, l)
-# print(enc)
+print(enc)
 # print(dec)
 # If this works, dec should be the same as text!
-
 
 # Part 2: Generate your own key!
 
