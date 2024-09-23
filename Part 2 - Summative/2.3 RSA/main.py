@@ -3,6 +3,7 @@ import math
 # Copy and paste any functions you need from the Affine assignment!
 alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
+
 def mod_inverse_helper(a, b):
     q, r = a // b, a % b
     if r == 1:
@@ -62,6 +63,13 @@ def convert_to_text(num, n):
 
 
 def rsa_encode(text, m, e):
+    """
+    Encodes text using RSA encryption.
+    :param text: The text to be encoded.
+    :param m: Two extremely large prime numbers multiplied together. This is the modulus used when encoding/decoding.
+    :param e: An encoding/decoding exponent
+    :return: The encoded text, returned as a number
+    """
     x = convert_to_num(text)
     if x < m:
         return pow(x, e, m)
@@ -71,11 +79,26 @@ def rsa_encode(text, m, e):
 
 
 def rsa_decode(num, m, d, l):
+    """
+    Decodes text that has been converted into a number with RSA encryption back to text.
+    :param num: The number to convert back to text
+    :param m: Two extremely large prime numbers multiplied together. This is the modulus used when encoding/decoding.
+    :param d: The totient of mod m, used to decode. Found using get_d function.
+    :param l: The length of the original text.
+    :return: The decoded text
+    """
     decoded_num = pow(num, d, m)
     return convert_to_text(decoded_num, l)
 
 
 def get_d(p, q, e):
+    """
+    Calculates d, an exponent used to decode text encrypted with RSA encryption.
+    :param p: An extremely large prime number
+    :param q: Another extremely large prime number
+    :param e: An encoding/decoding exponent
+    :return:
+    """
     t = (p - 1) * (q - 1)
     return mod_inverse(e, t)
 
