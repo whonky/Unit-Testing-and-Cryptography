@@ -76,7 +76,9 @@ def rsa_decode(num, m, d, l):
 
 def get_d(p, q, e):
     t = (p - 1) * (q - 1)
-    return pow()
+    return mod_inverse(e, t)
+
+print(get_d(2003,2503,17))
 
 # text = "THEFIVEBOXINGWIZARDSJUMPQUICKLY"
 # l = len(text)
@@ -94,7 +96,7 @@ def get_d(p, q, e):
 
 # Part 2: Generate your own key!
 
-from sympy import nextprime
+#from sympy import nextprime
 from random import randint
 
 def make_prime(n):
