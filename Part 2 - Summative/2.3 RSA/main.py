@@ -105,11 +105,14 @@ def get_d(p, q, e):
 
 text = "THEFIVEBOXINGWIZARDSJUMPQUICKLY"
 l = len(text)
+print(l)
 p = 292361466231755597564095925310764764819
 q = 307125506157764866722739041634199200019
 e = 65537
 m = p * q
+print(m)
 d = get_d(p, q, e)
+print(d)
 enc = rsa_encode(text, m, e)
 dec = rsa_decode(enc, m, d, l)
 print(enc)
