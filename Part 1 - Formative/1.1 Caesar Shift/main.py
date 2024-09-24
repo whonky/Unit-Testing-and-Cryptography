@@ -6,6 +6,7 @@ alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 def caesar_encode(text, n):
     """
     Encodes a word with a Caesar Cipher of a given shift.
+
     :param text: The text to be encoded.
     :param n: The number of letters to shift to the right.
     :return encoded_word: The encoded text.
@@ -28,6 +29,7 @@ def caesar_encode(text, n):
 def caesar_decode(text, n):
     """
     Decodes a word coded with the Caesar Cipher of a given shift.
+
     :param text: The text to be decoded.
     :param n: The number of letters to shift to the left.
     :return decoded_word: The decoded text.

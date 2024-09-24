@@ -143,6 +143,7 @@ print(answer)
 def simplify_text(text):
     """
     Simplifies text to be in all uppercase and exclude special characters, numbers, and spaces.
+
     :param text: The original text
     :return: The simplified text
     """
@@ -163,7 +164,8 @@ def affine_n_encode(text, n, a, b):
 
     :param text: The text to be encoded.
     :param n: Length of ngrams to split text into. n should always be greater than 0
-    :param a: The number multiplied by the letter's index. Should be less than 26 and share no common factors with the number 26.
+    :param a: The number multiplied by the letter's index. Should be less than 26 and share no common factors with the
+        number 26.
     :param b: The number added as a shift. Should be less than 26.
     :return: The encoded text.
     """
@@ -196,7 +198,8 @@ def affine_n_decode(text, n, a, b):
 
     :param text: The text to be decoded.
     :param n: Length of ngrams the text was split into. n should always be greater than 0
-    :param a: The number multiplied by the letter's index. Should be less than 26 and share no common factors with the number 26.
+    :param a: The number multiplied by the letter's index. Should be less than 26 and share no common factors with the
+        number 26.
     :param b: The number added as a shift. Should be less than 26.
     :return: The decoded text.
     """

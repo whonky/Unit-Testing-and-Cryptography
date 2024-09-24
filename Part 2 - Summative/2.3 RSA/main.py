@@ -66,6 +66,7 @@ def rsa_encode(text, m, e):
     """
     Encodes text using RSA encryption.
     The text should be in all uppercase and only include letters from the alphabet.
+
     :param text: The text to be encoded.
     :param m: Two extremely large prime numbers multiplied together. This is the modulus used when encoding/decoding.
     :param e: An encoding/decoding exponent
@@ -83,6 +84,7 @@ def rsa_decode(num, m, d, l):
     """
     Decodes text that has been converted into a number with RSA encryption back to text.
     The text will be returned in all uppercase.
+
     :param num: The number to convert back to text
     :param m: Two extremely large prime numbers multiplied together. This is the modulus used when encoding/decoding.
     :param d: The totient of mod m, used to decode. Found using get_d function.
