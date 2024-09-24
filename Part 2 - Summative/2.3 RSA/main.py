@@ -30,10 +30,10 @@ def convert_to_num(ngram):
     ngram_index = 0
 
     for i in range(len(ngram)):
-      if ngram[i].upper() in alpha:
-        alpha_index = alpha.find(ngram[i].upper())
-        converted_ngram += alpha_index * 26 ** ngram_index
-        ngram_index += 1
+        if ngram[i].upper() in alpha:
+            alpha_index = alpha.find(ngram[i].upper())
+            converted_ngram += alpha_index * 26 ** ngram_index
+            ngram_index += 1
 
     return converted_ngram
 
@@ -52,9 +52,9 @@ def convert_to_text(num, n):
     number = num
 
     for i in range(n):
-      index = number % 26
-      number = number // 26
-      converted_text += alpha[index]
+        index = number % 26
+        number = number // 26
+        converted_text += alpha[index]
 
     return converted_text
 
@@ -98,10 +98,11 @@ def rsa_decode(num, m, d, l):
 def get_d(p, q, e):
     """
     Calculates d, an exponent used to decode text encrypted with RSA encryption.
+
     :param p: An extremely large prime number
     :param q: Another extremely large prime number
     :param e: An encoding/decoding exponent
-    :return:
+    :return: d, an exponent used to decode text encrypted with RSA encryption
     """
     t = (p - 1) * (q - 1)
     return mod_inverse(e, t)
@@ -134,7 +135,7 @@ print(dec)
 
 # Part 2: Generate your own key!
 
-#from sympy import nextprime
+# from sympy import nextprime
 from random import randint
 
 def make_prime(n):
